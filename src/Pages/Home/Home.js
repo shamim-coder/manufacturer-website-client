@@ -3,14 +3,14 @@ import Banner from "./Banner";
 import BusinessSummary from "./BusinessSummary";
 import LatestTools from "./LatestTools";
 import Reviews from "./Reviews";
-import Features from "./Features";
 import OurTeam from "./OurTeam";
+import Services from "./Services";
 
 const Home = () => {
     return (
         <div>
             <Banner />
-            <Features />
+            <Services />
             <LatestTools />
             <BusinessSummary />
             <OurTeam />
