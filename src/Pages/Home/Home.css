@@ -1,0 +1,7 @@
+.banner {
+    background-image: url("../../Assets/banner-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.468);
+}
