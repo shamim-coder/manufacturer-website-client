@@ -2,6 +2,27 @@
     background-image: url("../../Assets/banner-bg.jpg");
     background-size: cover;
     background-position: center;
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.468);
+}
+
+.business-summery {
+    background-image: url("../../Assets/business-summery-bg.png");
+    background-size: cover;
+}
+.reviews {
+    background-image: url("../../Assets/white-texture.jpg");
+    background-size: cover;
+}
+.review {
+    background-image: url("../../Assets/quotes.png");
+    background-size: cover;
+}
+.tool:hover .buy-now {
+    display: block;
+    bottom: 0;
+}
+
+.buy-now {
+    bottom: -50px;
+    transition: 0.3s;
+    position: absolute;
 }

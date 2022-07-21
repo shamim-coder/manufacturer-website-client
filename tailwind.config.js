@@ -3,6 +3,13 @@ module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         extend: {},
+        fontFamily: {
+            sans: ["ui-sans-serif", "system-ui"],
+            serif: ["ui-serif", "Georgia"],
+            mono: ["ui-monospace", "SFMono-Regular"],
+            Oswald: ["Oswald"],
+            body: ["Poppins"],
+        },
         container: {
             padding: {
                 DEFAULT: "1rem",
@@ -23,6 +30,8 @@ module.exports = {
                     neutral: "#3d4451",
                     "base-100": "#ffffff",
                     "--rounded-btn": "none",
+                    "--rounded-box": "none",
+                    "--rounded-badge": "none",
                 },
                 dark: {
                     primary: "#FEBD17",
@@ -31,6 +40,10 @@ module.exports = {
                     neutral: "#3d4451",
                     "base-100": "#32353E",
                     "--rounded-btn": "none",
+                    "--rounded": "none",
+                    "--rounded-box": "none",
+                    "--rounded-badge": "none",
+                    "--tab-radius": "none",
                 },
             },
         ],

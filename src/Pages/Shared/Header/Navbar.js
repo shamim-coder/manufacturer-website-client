@@ -1,8 +1,13 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../Assets/logo.png";
+import auth from "../../../Utilities/Firebase.init";
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
+
     return (
         <nav className="container mx-auto">
             <div class="navbar bg-base-100 p-0 py-5">
@@ -55,11 +60,13 @@ const Navbar = () => {
                                 All Products
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink to={"/dashboard"} className="uppercase font-semibold">
-                                Dashboard
-                            </NavLink>
-                        </li>
+                        {user && (
+                            <li>
+                                <NavLink to={"/dashboard"} className="uppercase font-semibold">
+                                    Dashboard
+                                </NavLink>
+                            </li>
+                        )}
                         <li>
                             <NavLink to={"/portfolio"} className="uppercase font-semibold">
                                 Portfolio
@@ -73,27 +80,38 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <div class="dropdown dropdown-end">
-                        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                            <div class="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" />
-                            </div>
-                        </label>
-                        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    {user ? (
+                        <div class="dropdown dropdown-end">
+                            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                                <div class="w-10 rounded-full">
+                                    <img src={user.photoURL} alt="" />
+                                </div>
+                            </label>
+                            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <Link to="/profile" class="justify-between">
+                                        {user ? user.displayName : "Profile"}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/dashboard">Dashboard</Link>
+                                </li>
+                                <li>
+                                    <Link onClick={() => signOut(auth)} to="/login">
+                                        Logout
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    ) : (
+                        <ul className="menu menu-horizontal p-0 gap-10">
                             <li>
-                                <a class="justify-between">
-                                    Profile
-                                    <span class="badge">New</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a>Settings</a>
-                            </li>
-                            <li>
-                                <a>Logout</a>
+                                <NavLink to={"/login"} className="uppercase font-semibold">
+                                    Login
+                                </NavLink>
                             </li>
                         </ul>
-                    </div>
+                    )}
                 </div>
             </div>
         </nav>

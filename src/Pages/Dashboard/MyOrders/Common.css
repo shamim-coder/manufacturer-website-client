@@ -1,0 +1,11 @@
+.StripeElement,
+.StripeElementIdeal,
+.StripeElementP24,
+.StripeElementEPS,
+.StripeElementFpx {
+    display: block;
+    margin: 10px 0 20px 0;
+    max-width: 500px;
+    padding: 14px 14px;
+    background: white;
+}
