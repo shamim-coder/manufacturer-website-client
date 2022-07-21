@@ -2,7 +2,6 @@ import { faFacebookF, faGithub, faGooglePlusG, faLinkedin, faTwitter } from "@fo
 import { faEnvelope, faPhone, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
 
 const HeaderTop = () => {
     return (
@@ -19,20 +18,20 @@ const HeaderTop = () => {
                         <FontAwesomeIcon className="text-primary mr-2" icon={faEnvelope} /> baumeister@qodeinteractive.com
                     </a>
                 </div>
-                <div className="flex gap-3">
-                    <a className="hover:text-primary transition" href="https://twitter.com">
+                <div className="flex gap-4">
+                    <a className="hover:text-primary transition text-lg" href="https://twitter.com">
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>
-                    <a className="hover:text-primary transition" href="https://twitter.com">
+                    <a className="hover:text-primary transition text-lg" href="https://twitter.com">
                         <FontAwesomeIcon icon={faFacebookF} />
                     </a>
-                    <a className="hover:text-primary transition" href="https://twitter.com">
+                    <a className="hover:text-primary transition text-lg" href="https://twitter.com">
                         <FontAwesomeIcon icon={faGooglePlusG} />
                     </a>
-                    <a className="hover:text-primary transition" href="https://twitter.com">
+                    <a className="hover:text-primary transition text-lg" href="https://twitter.com">
                         <FontAwesomeIcon icon={faLinkedin} />
                     </a>
-                    <a className="hover:text-primary transition" href="https://twitter.com">
+                    <a className="hover:text-primary transition text-lg" href="https://twitter.com">
                         <FontAwesomeIcon icon={faGithub} />
                     </a>
                 </div>
