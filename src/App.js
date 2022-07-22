@@ -22,6 +22,12 @@ import ManageProducts from "./Pages/Dashboard/ManageProducts/ManageProducts";
 import ManageUsers from "./Pages/Dashboard/ManageUsers/ManageUsers";
 import AddProduct from "./Pages/Dashboard/AddProducts/AddProduct";
 import Payment from "./Pages/Dashboard/MyOrders/Payment";
+import RequireAdmin from "./Pages/Shared/RequireAdmin/RequireAdmin";
+import RequireUser from "./Pages/Shared/RequiteUser/RequiteUser";
+import ForgotPassword from "./Pages/Authentication/ForgotPassword";
+import AllProducts from "./Pages/AllProducts/AllProducts";
+import Portfolio from "./Pages/Portfolio/Portfolio";
+import Blogs from "./Pages/Blogs/Blogs";
 
 export const OrderContext = createContext({});
 
@@ -69,19 +75,74 @@ function App() {
                         </RequireAuth>
                     }
                 >
-                    <Route index element={<MyOrders />} />
-                    <Route path="my-orders" element={<MyOrders />} />
-                    <Route path="add-review" element={<AddReview />} />
+                    <Route index element={<Profile />} />
+
                     <Route path="profile" element={<Profile />} />
-                    <Route path="add-product" element={<AddProduct />} />
-                    <Route path="manage-products" element={<ManageProducts />} />
-                    <Route path="manage-orders" element={<ManageOrders />} />
-                    <Route path="manage-users" element={<ManageUsers />} />
-                    <Route path="my-orders/payment/:id" element={<Payment />} />
+                    <Route
+                        path="my-orders"
+                        element={
+                            <RequireUser>
+                                <MyOrders />
+                            </RequireUser>
+                        }
+                    />
+                    <Route
+                        path="my-orders/payment/:id"
+                        element={
+                            <RequireUser>
+                                <Payment />
+                            </RequireUser>
+                        }
+                    />
+                    <Route
+                        path="add-review"
+                        element={
+                            <RequireUser>
+                                <AddReview />
+                            </RequireUser>
+                        }
+                    />
+
+                    <Route
+                        path="add-product"
+                        element={
+                            <RequireAdmin>
+                                <AddProduct />
+                            </RequireAdmin>
+                        }
+                    />
+                    <Route
+                        path="manage-products"
+                        element={
+                            <RequireAdmin>
+                                <ManageProducts />
+                            </RequireAdmin>
+                        }
+                    />
+                    <Route
+                        path="manage-orders"
+                        element={
+                            <RequireAdmin>
+                                <ManageOrders />
+                            </RequireAdmin>
+                        }
+                    />
+                    <Route
+                        path="manage-users"
+                        element={
+                            <RequireAdmin>
+                                <ManageUsers />
+                            </RequireAdmin>
+                        }
+                    />
                 </Route>
 
+                <Route path="/all-products" element={<AllProducts />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/blog" element={<Blogs />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/forgot" element={<ForgotPassword />} />
 
                 <Route path="*" element={<NotFound />} />
             </Routes>

@@ -5,20 +5,22 @@ import { Link, useNavigate } from "react-router-dom";
 const Tool = ({ tool }) => {
     const navigate = useNavigate();
 
-    const { price, name, model, image, availableStock, issueDate, _id } = tool;
+    const { price, name, model, image, availableStock, minimumQuantity, issueDate, _id } = tool;
 
     const today = format(new Date(), "MM-dd-yyyy");
 
     return (
         <div className="mb-5">
             <div className="relative">
-                <span className={`uppercase ${availableStock === 0 ? "bg-gray-300 text-gray-700" : today === issueDate ? "bg-primary text-secondary" : "bg-secondary text-white"} px-2 py-1 absolute top-[-15px] left-[15px] font-medium z-50`}>
-                    {availableStock === 0 ? "SOLD" : today === issueDate ? "NEW" : "SALE"}
+                <span
+                    className={`uppercase ${availableStock < minimumQuantity ? "bg-gray-300 text-gray-700" : today === issueDate ? "bg-primary text-secondary" : "bg-secondary text-white"} px-2 py-1 absolute top-[-15px] left-[15px] font-medium z-50`}
+                >
+                    {availableStock < minimumQuantity ? "SOLD" : today === issueDate ? "NEW" : "SALE"}
                 </span>
                 <div className=" bg-white relative tool transition overflow-hidden">
                     <img className="border-2 border-gray-400 p-5" src={image} alt="" />
                     <button onClick={() => navigate(`/tool-details/${_id}`)} className="transition buy-now btn btn-primary w-full">
-                        {availableStock === 0 ? "See Details" : "Buy Now"}
+                        {availableStock < minimumQuantity ? "See Details" : "Buy Now"}
                     </button>
                 </div>
             </div>

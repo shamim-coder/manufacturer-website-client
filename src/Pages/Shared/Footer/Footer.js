@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <>
             <footer className="py-14 bg-black text-white footer-bg">
-                <div class="container mx-auto footer grid grid-cols-4 gap-10">
+                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                     <div>
                         <Link to={"/"}>
                             <img className="w-[180px] mb-5" src={Logo} alt="" />
@@ -34,20 +34,20 @@ const Footer = () => {
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-2xl mb-7">What we do</h3>
+                        <h3 className="text-2xl mb-7">What we do</h3>
                         <p className="text-base mb-5">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-                        <Link to={"/"} class="link link-hover text-base border-b-2 pb-5 mb-2 font-body">
+                        <Link to={"/"} className="link block link-hover text-base border-b-2 pb-5 mb-2 font-body">
                             <FontAwesomeIcon className="mr-2 text-primary" icon={faUser} /> Lorem ipsum dolor sit amet
                         </Link>
-                        <Link to={"/"} class="link link-hover text-base border-b-2 pb-5 mb-2 font-body">
+                        <Link to={"/"} className="link link-hover block text-base border-b-2 pb-5 mb-2 font-body">
                             <FontAwesomeIcon className="mr-2 text-primary" icon={faUser} /> Lorem ipsum dolor sit amet
                         </Link>
-                        <Link to={"/"} class="link link-hover text-base font-body">
+                        <Link to={"/"} className="link link-hover block text-base font-body">
                             <FontAwesomeIcon className="mr-2 text-primary" icon={faUser} /> Lorem ipsum dolor sit amet
                         </Link>
                     </div>
                     <div>
-                        <h3 class="text-2xl mb-7">Contact information</h3>
+                        <h3 className="text-2xl mb-7">Contact information</h3>
                         <ul>
                             <li className="mb-5 text-base">
                                 <FontAwesomeIcon className="mr-2 text-primary" icon={faMapMarker} /> 620 Eighth Avenue, United States of America
@@ -61,20 +61,20 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-2xl mb-7">Newsletter</h3>
-                        <div class="form-control w-80">
-                            <label class="label">
-                                <span class="label-text text-white">Enter your email address</span>
+                        <h3 className="text-2xl mb-7">Newsletter</h3>
+                        <div className="form-control w-80">
+                            <label className="label">
+                                <span className="label-text text-white">Enter your email address</span>
                             </label>
-                            <div class="relative">
-                                <input type="text" placeholder="username@site.com" class="text-secondary input input-bordered w-full pr-16" />
-                                <button class="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+                            <div className="relative">
+                                <input type="text" placeholder="username@site.com" className="text-secondary input input-bordered w-full pr-16" />
+                                <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </footer>
-            <footer class="footer footer-center p-10 bg-secondary text-base-content">
+            <footer className="footer footer-center p-10 bg-secondary text-base-content">
                 <div>
                     <Link to="/" className="text-white hover:text-primary transition font-body">
                         Copyright © 2022 - All right reserved by DEWALT Ltd.

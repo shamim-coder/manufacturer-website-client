@@ -20,7 +20,7 @@ const Payment = () => {
         data: orderDetails,
         refetch,
     } = useQuery(["orderDetails", id], async () => {
-        const res = await fetch(`http://localhost:5000/order/${id}`, {
+        const res = await fetch(`https://dewalt-bd.herokuapp.com/order/${id}`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -55,7 +55,7 @@ const Payment = () => {
                         <img className="md:w-5/12" src={image} alt="" />
                         <div>
                             <h4 className="text-2xl mb-2">{name}</h4>
-                            <p class="badge badge-ghost badge-sm font-body mb-5">Model: {model}</p>
+                            <p className="badge badge-ghost badge-sm font-body mb-5">Model: {model}</p>
                             <h4 className="text-2xl mb-3">
                                 Total Price: <span className="font-body">${totalPrice}</span>
                             </h4>

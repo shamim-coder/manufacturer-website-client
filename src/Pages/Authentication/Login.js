@@ -45,8 +45,8 @@ const Login = () => {
     }, [error, googleError]);
 
     return (
-        <section className="pb-20">
-            <div className="card-body w-3/12 mx-auto shadow mt-14">
+        <section className="pb-20 px-5">
+            <div className="card-body sm:w-[390px] mx-auto shadow mt-14">
                 <h2 className="text-2xl text-center font-semibold">Login</h2>
                 {googleError || error ? "" : undefined}
 

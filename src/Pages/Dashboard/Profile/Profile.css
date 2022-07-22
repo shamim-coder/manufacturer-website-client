@@ -1,0 +1,9 @@
+.profile-image:hover .profile-label {
+    transform: scale(0.9);
+    background-color: rgba(0, 0, 0, 0.408);
+    transition: 0.3s;
+}
+.profile-label {
+    transform: scale(0);
+    transition: 0.3s;
+}

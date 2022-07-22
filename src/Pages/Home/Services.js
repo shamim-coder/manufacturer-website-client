@@ -34,7 +34,7 @@ const Services = () => {
             <div className="container mx-auto py-14">
                 <SectionTop title={"Our Services"} paragraph={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} />
 
-                <div className="grid grid-cols-4 gap-5 my-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10">
                     {services.map((service) => (
                         <div className="text-center" key={service.id}>
                             <i class={`fa-solid fa-${service.serviceIcon} mx-auto text-4xl bg-primary rounded-full h-24 w-24 flex justify-center items-center mb-5`}></i>

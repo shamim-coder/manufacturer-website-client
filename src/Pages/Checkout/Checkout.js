@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { OrderContext } from "../../App";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
 
 const Checkout = () => {
     const [user] = useAuthState(auth);
@@ -12,6 +13,7 @@ const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const { name, totalPrice, model, quantity, image } = orderInfo;
     const navigate = useNavigate();
+    const orderDate = format(new Date(), "MM-dd-yyyy");
 
     const {
         register,
@@ -25,11 +27,12 @@ const Checkout = () => {
         const newOrderDetails = {
             ...orderInfo,
             ...data,
+            orderDate,
             status: "unpaid",
         };
 
         try {
-            const response = await fetch("http://localhost:5000/order", {
+            const response = await fetch("https://dewalt-bd.herokuapp.com/order", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -72,35 +75,35 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className="checkout-form w-8/12 shadow-lg">
-                    <form onSubmit={handleSubmit(onSubmit)} class="card-body">
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Name</span>
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
                             </label>
-                            <input class="input input-bordered read-only:bg-gray-200" type="text" defaultValue={user?.displayName} readOnly placeholder="Your Name" {...register("username", { required: true })} />
+                            <input className="input input-bordered read-only:bg-gray-200" type="text" defaultValue={user?.displayName} readOnly placeholder="Your Name" {...register("username", { required: true })} />
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Email</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
                             </label>
 
-                            <input defaultValue={user?.email} readOnly class="input input-bordered read-only:bg-gray-200" type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
+                            <input defaultValue={user?.email} readOnly className="input input-bordered read-only:bg-gray-200" type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Mobile Number</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Mobile Number</span>
                             </label>
-                            <input class="input input-bordered" type="tel" placeholder="Mobile number" {...register("mobile", { required: true, minLength: 6, maxLength: 12 })} />
+                            <input className="input input-bordered" type="tel" placeholder="Mobile number" {...register("mobile", { required: true, minLength: 6, maxLength: 12 })} />
                             {errors.mobile?.type === "required" && <span className="label text-error text-sm">Mobile Number is required</span>}
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Your Address</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Your Address</span>
                             </label>
-                            <textarea placeholder="Street Address, City, Zip Code.." class="textarea border-spacing-2 border-gray-300" {...register("address", { required: true })} />
+                            <textarea placeholder="Street Address, City, Zip Code.." className="textarea border-spacing-2 border-gray-300" {...register("address", { required: true })} />
                             {errors.address?.type === "required" && <span className="label text-error text-sm">Address is required</span>}
                         </div>
-                        <div class="form-control mt-6">
+                        <div className="form-control mt-6">
                             <button class={`btn btn-primary ${loading && "loading"}`}>Confirm Order</button>
                         </div>
                     </form>

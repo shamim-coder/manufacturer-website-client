@@ -7,7 +7,7 @@ const useTools = () => {
         data: tools,
         refetch,
     } = useQuery(["tools"], async () => {
-        const res = await fetch(`http://localhost:5000/tools`, {
+        const res = await fetch(`https://dewalt-bd.herokuapp.com/tools`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

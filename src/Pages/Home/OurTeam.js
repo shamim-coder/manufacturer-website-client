@@ -9,11 +9,11 @@ import team4 from "../../Assets/teams/team4.jpg";
 
 const OurTeam = () => {
     return (
-        <section className="py-14">
+        <section className="md:py-14 py-5">
             <div className="container mx-auto">
                 <SectionTop title={"Our Team"} paragraph="Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-                <div className="grid grid-cols-4 gap-10 py-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:md:grid-cols-4 gap-10 py-10">
                     <div className="team">
                         <div className="overflow-hidden mb-3">
                             <img className="hover:scale-110 ease-in-out duration-700" src={team1} alt="" />

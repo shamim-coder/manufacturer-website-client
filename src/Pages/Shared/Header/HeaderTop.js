@@ -5,7 +5,7 @@ import React from "react";
 
 const HeaderTop = () => {
     return (
-        <section className="bg-secondary py-5">
+        <section className="bg-secondary py-5 hidden lg:block">
             <div className="container mx-auto flex justify-between text-white">
                 <div className="flex">
                     <a className="border-r-2 pr-5 mr-5 border-gray-600" href="http://" target="_blank" rel="noopener noreferrer">

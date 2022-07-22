@@ -37,7 +37,7 @@ const AddReview = () => {
             rating: ratingNumber,
         };
 
-        const res = await fetch(`http://localhost:5000/review/${user.email}`, {
+        const res = await fetch(`https://dewalt-bd.herokuapp.com/review/${user.email}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const AddReview = () => {
                     </label>
                     <input {...register("designation", { required: { value: true, message: "Designation is required" } })} type="text" placeholder="Your Designation" className="input input-bordered" />
 
-                    {errors.designation?.type === "required" && <span className="label text-error text-sm">{errors.name.message}</span>}
+                    {errors.designation?.type === "required" && <span className="label text-error text-sm">{errors.designation.message}</span>}
                 </div>
                 <div className="form-control mb-3">
                     <label className="label">
@@ -89,7 +89,7 @@ const AddReview = () => {
                     </label>
                     <input {...register("company", { required: { value: true, message: "company is required" } })} type="text" placeholder="Your Company Name" className="input input-bordered" />
 
-                    {errors.name?.type === "required" && <span className="label text-error text-sm">{errors.name.message}</span>}
+                    {errors.company?.type === "required" && <span className="label text-error text-sm">{errors.company.message}</span>}
                 </div>
 
                 <div className="form-control mb-3">
@@ -98,7 +98,7 @@ const AddReview = () => {
                     </label>
                     <textarea {...register("message", { required: { value: true, message: "Message is required" } })} placeholder="Your Message" className="textarea border-base-300" />
 
-                    {errors.name?.type === "required" && <span className="label text-error text-sm">{errors.name.message}</span>}
+                    {errors.message?.type === "required" && <span className="label text-error text-sm">{errors.message.message}</span>}
                 </div>
 
                 <div className="form-control">

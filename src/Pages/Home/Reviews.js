@@ -25,31 +25,48 @@ const Reviews = () => {
     return (
         <section className="reviews py-14">
             <SectionTop title={"What Our Clients Says"} paragraph="Our clients send us bunch of smiles with our service and love them." />
-            <div class="container mx-auto mt-20 mySwiper">
-                <div class="mb-16 swiper-wrapper">
+            <div className="container mx-auto mt-20 mySwiper">
+                <div className="mb-16 swiper-wrapper">
                     <Swiper
-                        slidesPerView={3}
-                        spaceBetween={30}
-                        freeMode={true}
+                        slidesPerView={1}
+                        spaceBetween={10}
                         pagination={{
                             clickable: true,
                         }}
-                        modules={[FreeMode, Pagination]}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 40,
+                            },
+                            1024: {
+                                slidesPerView: 2,
+                                spaceBetween: 50,
+                            },
+                            1440: {
+                                slidesPerView: 3,
+                                spaceBetween: 50,
+                            },
+                        }}
+                        modules={[Pagination]}
                         className="mySwiper"
                     >
                         {reviews.map((review) => (
                             <SwiperSlide>
-                                <div class="review py-10 px-7 text-gray-800 border-2 bg-white">
-                                    <div class="mb-2">
-                                        <q class="mb-2 text-center text-gray-600">{review.message.split(" ").slice(0, 22).join(" ")}.</q>
-                                        <div class="flex flex-col items-center justify-center">
-                                            <div class="my-3 w-16 h-16 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full">
+                                <div className="review py-10 px-7 text-gray-800 border-2 bg-white">
+                                    <div className="mb-2">
+                                        <q className="mb-2 text-center text-gray-600">{review.message.split(" ").slice(0, 22).join(" ")}.</q>
+                                        <div className="flex flex-col items-center justify-center">
+                                            <div className="my-3 w-16 h-16 overflow-hidden bg-gray-100 border-2 border-indigo-100 rounded-full">
                                                 <img src={review.image} alt="" />
                                             </div>
-                                            <h5 class="font-semibold tracking-wider text-primary text-xl">{review.name}</h5>
+                                            <h5 className="font-semibold tracking-wider text-primary text-xl">{review.name}</h5>
 
-                                            <p class="text-sm text-gray-600 ">{review.designation}</p>
-                                            <p class="text-sm text-accent mb-2">{review.company}</p>
+                                            <p className="text-sm text-gray-600 ">{review.designation}</p>
+                                            <p className="text-sm text-accent mb-2">{review.company}</p>
                                             <Rating rating={review.rating} />
                                         </div>
                                     </div>
@@ -58,7 +75,7 @@ const Reviews = () => {
                         ))}
                     </Swiper>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div className="swiper-pagination"></div>
                 <button onClick={() => navigate("/dashboard/add-review")} className="btn btn-primary mx-auto block px-10">
                     Write a Review
                 </button>

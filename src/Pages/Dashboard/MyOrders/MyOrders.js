@@ -15,8 +15,8 @@ const MyOrders = () => {
     return (
         <section>
             <h2 className="text-4xl font-bold text-center my-10">Manage My Orders</h2>
-            <div class="overflow-x-auto w-full shadow-lg min-h-[350px]">
-                <table class="table w-full">
+            <div className="overflow-x-auto w-full shadow-lg min-h-[350px]">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th className="text-base text-center w-1/12">SL</th>
@@ -30,7 +30,7 @@ const MyOrders = () => {
                     <tbody>{myOrders && myOrders.map((order, index) => <OrderTable key={order?._id} order={order} index={index} setIsDelete={setIsDelete} />)}</tbody>
                 </table>
             </div>
-            {isDelete && <DeleteConfirmModal isDelete={isDelete} refetch={refetch} />}
+            {isDelete && <DeleteConfirmModal path={"order"} isDelete={isDelete} refetch={refetch} />}
         </section>
     );
 };

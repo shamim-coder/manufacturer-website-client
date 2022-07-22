@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
@@ -6,12 +6,16 @@ import { useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../../Utilities/Firebase.init";
 import useToken from "../../Hooks/useToken";
 import { toast } from "react-toastify";
+import { signOut } from "firebase/auth";
 
 const Signup = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [loading, setLoading] = useState(false);
 
     const from = location.state?.from?.pathname || "/";
+
+    const imageStorageKey = "f72b24bd5ba10548faef333ddb8df230";
 
     const {
         register,
@@ -20,23 +24,43 @@ const Signup = () => {
         formState: { errors },
     } = useForm();
 
-    const [createUserWithEmailAndPassword, signupUser, loading, signupError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [createUserWithEmailAndPassword, signupUser, , signupError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile] = useUpdateProfile(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
     const [token] = useToken(signupUser || googleUser);
 
     const handleSignup = async (data) => {
-        const displayName = data.name;
-        const photoURL = "https://thumbs.dreamstime.com/b/man-hipster-avatar-cartoon-guy-black-hair-man-hipster-avatar-cartoon-guy-black-hair-flat-icon-blue-background-user-223717055.jpg";
-        await createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile({ displayName, photoURL });
-        reset();
+        setLoading(true);
+
+        const image = data.image[0];
+
+        const formData = new FormData();
+        formData.append("image", image);
+        console.log(formData);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then(async (result) => {
+                if (result.success) {
+                    const displayName = data.name;
+                    const photoURL = result.data.url;
+                    await createUserWithEmailAndPassword(data.email, data.password);
+                    await updateProfile({ displayName, photoURL });
+                    setLoading(false);
+                    toast.success("Account create successfully!");
+                    reset();
+                }
+            });
     };
 
     useEffect(() => {
         if (token) {
-            navigate(from, { replace: true });
+            signOut(auth);
+            navigate("/login");
         }
     }, [from, navigate, token]);
 
@@ -50,10 +74,10 @@ const Signup = () => {
     }, [signupError, googleError]);
 
     return (
-        <section className="pb-20">
-            <div className="card-body w-3/12 mx-auto shadow mt-14">
+        <section className="pb-20 px-5">
+            <div className="card-body sm:w-[390px] mx-auto shadow mt-14 ">
                 <h2 className="text-2xl text-center font-semibold">Sign Up</h2>
-                <form onSubmit={handleSubmit(handleSignup)} action="">
+                <form onSubmit={handleSubmit(handleSignup)}>
                     <div className="form-control mb-3">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -61,6 +85,15 @@ const Signup = () => {
                         <input {...register("name", { required: { value: true, message: "Name is required" } })} type="text" placeholder="Your Name" className="input input-bordered" />
 
                         {errors.name?.type === "required" && <span className="label text-error text-sm">{errors.name.message}</span>}
+                    </div>
+                    <div className="form-control mb-3">
+                        <label className="label">
+                            <span className="label-text">Product Image</span>
+                        </label>
+                        <input {...register("image", { required: { value: true, message: "Product Image is required" } })} type="file" className="input input-bordered" />
+
+                        {errors.image?.type === "required" && <span className="label text-error text-sm">{errors.image.message}</span>}
+                        {/* {isUpload && <span className="label text-error text-sm">Uploading...</span>} */}
                     </div>
                     <div className="form-control mb-3">
                         <label className="label">
