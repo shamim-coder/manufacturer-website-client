@@ -13,7 +13,7 @@ const ManageUsers = () => {
     return (
         <section>
             <h2 className="text-4xl font-bold text-center my-10">Manage Users</h2>
-            <div className="overflow-x-auto w-full shadow-lg pb-10">
+            <div className="overflow-x-auto w-full shadow-lg mb-10">
                 <table className="table w-full">
                     <thead>
                         <tr>
