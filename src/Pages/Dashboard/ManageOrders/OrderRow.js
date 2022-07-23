@@ -64,7 +64,7 @@ const OrderRow = ({ order, index, refetch, setIsDelete }) => {
                             </>
                         ) : status === "Pending" ? (
                             <>
-                                {status} <FontAwesomeIcon icon={faHourglass} />
+                                Paid <FontAwesomeIcon icon={faHourglass} />
                             </>
                         ) : status === "Shipped" ? (
                             <>

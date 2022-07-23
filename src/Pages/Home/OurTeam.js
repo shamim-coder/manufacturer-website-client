@@ -11,7 +11,7 @@ const OurTeam = () => {
     return (
         <section className="md:py-14 py-5">
             <div className="container mx-auto">
-                <SectionTop title={"Our Team"} paragraph="Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+                <SectionTop title={"Our Team"} paragraph="With over 100 years of combined experience, we've got well-seasoned team at the helm." />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:md:grid-cols-4 gap-10 py-10">
                     <div className="team">

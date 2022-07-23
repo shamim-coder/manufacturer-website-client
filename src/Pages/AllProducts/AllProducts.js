@@ -12,7 +12,7 @@ const AllProducts = () => {
     return (
         <section>
             <div className="container mx-auto">
-                <SectionTop title={"All Tools"} paragraph={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} />
+                <SectionTop title={"All Tools"} paragraph={"Our tools and accessories are made to live on the jobsite. That’s where they’re tested. And if there’s a problem, it’s where we solve it. The result is products we can stand behind. "} />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
                     {tools.map((tool) => (

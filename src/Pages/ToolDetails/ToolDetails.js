@@ -69,7 +69,7 @@ const ToolDetails = () => {
                     <h1 className="text-3xl md:text-4xl font-semibold text-secondary">{name}</h1>
                     <p className="text-lg mt-2">Model: {model}</p>
                     <h2 className="text-4xl font-semibold text-secondary mt-7">${price}</h2>
-                    <p className="mt-7 leading-relaxed text-accent">{description}</p>
+                    <p className="mt-7 leading-relaxed text-accent mb-5">{description}</p>
                     {profile?.role !== "admin" && (
                         <div className="flex gap-10 my-10">
                             {availableStock === 0 ? (

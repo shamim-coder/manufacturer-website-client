@@ -16,7 +16,7 @@ const LatestTools = () => {
     return (
         <section className="bg-base-200/30 py-14">
             <div className="container mx-auto">
-                <SectionTop title={"New Tools On Market"} paragraph={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} />
+                <SectionTop title={"New Tools On Market"} paragraph={"Join MyDEWALT to register your tools and help protect your investment, rate and review products you love, and learn about the newest DEWALT tools and accessories."} />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
                     {tools.slice(0, 6).map((tool) => (

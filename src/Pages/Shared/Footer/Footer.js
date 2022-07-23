@@ -14,7 +14,9 @@ const Footer = () => {
                         <Link to={"/"}>
                             <img className="w-[180px] mb-5" src={Logo} alt="" />
                         </Link>
-                        <p className="text-base leading-relaxed mb-4 ">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.</p>
+                        <p className="text-base leading-relaxed mb-4 ">
+                            See why millions of professionals choose DEWALT. From our rich history and proven performance to our focus on innovation and technology. WE are DEWALT, and we are GUARANTEED TOUGH®
+                        </p>
                         <div className="flex gap-4">
                             <a className="hover:text-primary transition text-lg" href="https://twitter.com">
                                 <FontAwesomeIcon icon={faTwitter} />
