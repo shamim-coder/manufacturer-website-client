@@ -26,7 +26,7 @@ const DeleteConfirmModal = ({ isDelete, refetch, path }) => {
             <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle z-50">
                 <div className="modal-box z-50 relative text-center py-10">
-                    <label for="delete-confirm-modal" className="p-2 text-secondary cursor-pointer absolute right-2 top-2">
+                    <label htmlFor="delete-confirm-modal" className="p-2 text-secondary cursor-pointer absolute right-2 top-2">
                         <FontAwesomeIcon className="text-xl text-accent" icon={faXmark} />
                     </label>
 
@@ -39,11 +39,11 @@ const DeleteConfirmModal = ({ isDelete, refetch, path }) => {
                     </p>
 
                     <div className="flex justify-center gap-5">
-                        <label for="delete-confirm-modal" className="btn btn-accent text-white px-10">
+                        <label htmlFor="delete-confirm-modal" className="btn btn-accent text-white px-10">
                             {path === "product" ? "Cancel" : "No"}
                         </label>
 
-                        <label for="delete-confirm-modal" onClick={() => handleDelete(_id)} className="btn btn-error text-white px-10 ">
+                        <label htmlFor="delete-confirm-modal" onClick={() => handleDelete(_id)} className="btn btn-error text-white px-10 ">
                             {path === "product" ? "Delete" : "Yes"}
                         </label>
                     </div>

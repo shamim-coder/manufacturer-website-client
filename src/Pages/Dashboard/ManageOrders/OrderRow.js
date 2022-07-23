@@ -56,7 +56,7 @@ const OrderRow = ({ order, index, refetch, setIsDelete }) => {
             <td className="border text-center">{quantity}</td>
             <td className="border text-center">${totalPrice}</td>
             <td className={`border text-center capitalize`}>
-                <div class={`badge text-white rounded-2xl p-3 ${status === "unpaid" ? "badge-error" : status === "Pending" ? "badge-info" : status === "Shipped" ? "badge-primary" : "badge-success"}`}>
+                <div className={`badge text-white rounded-2xl p-3 ${status === "unpaid" ? "badge-error" : status === "Pending" ? "badge-info" : status === "Shipped" ? "badge-primary" : "badge-success"}`}>
                     <p>
                         {status === "unpaid" ? (
                             <>
@@ -94,7 +94,7 @@ const OrderRow = ({ order, index, refetch, setIsDelete }) => {
                         <FontAwesomeIcon icon={faCheckCircle} /> Delivered{" "}
                     </p>
                 ) : (
-                    <label className="text-error cursor-pointer" onClick={() => setIsDelete(order)} for="delete-confirm-modal">
+                    <label className="text-error cursor-pointer" onClick={() => setIsDelete(order)} htmlFor="delete-confirm-modal">
                         Cancel Order
                     </label>
                 )}

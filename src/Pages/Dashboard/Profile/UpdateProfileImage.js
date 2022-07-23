@@ -61,7 +61,7 @@ const UpdateProfileImage = ({ refetch, setUploading }) => {
             <input type="checkbox" id="profile-profile-picture" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box p-10 relative">
-                    <label for="profile-profile-picture" className="btn btn-sm btn-circle absolute right-2 top-2">
+                    <label htmlFor="profile-profile-picture" className="btn btn-sm btn-circle absolute right-2 top-2">
                         ✕
                     </label>
                     <h2 className="text-2xl mb-5">Update Profile Picture</h2>
@@ -77,7 +77,7 @@ const UpdateProfileImage = ({ refetch, setUploading }) => {
 
                         <div className="form-control">
                             <button type="submit">
-                                <label className={`w-full btn btn-primary`} for="profile-profile-picture">
+                                <label className={`w-full btn btn-primary`} htmlFor="profile-profile-picture">
                                     Upload
                                 </label>
                             </button>

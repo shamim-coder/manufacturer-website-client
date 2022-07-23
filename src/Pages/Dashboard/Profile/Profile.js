@@ -23,10 +23,10 @@ const Profile = () => {
             <div className="sm:flex gap-10 my-10">
                 <div className="relative profile-image mb-5">
                     <img className="sm:w-[200px] sm:h-[200px] object-cover shadow-lg p-2" src={profile?.image} alt="" />
-                    <label for="profile-profile-picture" className="profile-label flex justify-center items-center cursor-pointer absolute top-0 left-0 h-full w-full">
+                    <label htmlFor="profile-profile-picture" className="profile-label flex justify-center items-center cursor-pointer absolute top-0 left-0 h-full w-full">
                         <FontAwesomeIcon className="text-success" icon={faPencil} />
                     </label>
-                    {uploading && <button class="btn scale-90 loading bg-secondary/60 transition absolute top-0 left-0 h-full w-full"></button>}
+                    {uploading && <button className="btn scale-90 loading bg-secondary/60 transition absolute top-0 left-0 h-full w-full"></button>}
                 </div>
                 <div>
                     <h2 className="text-2xl font-semibold mb-1">{profile.name}</h2>
@@ -35,7 +35,7 @@ const Profile = () => {
                     <div className="mt-10">
                         <h4 className="text-xl mb-3">
                             Connect with me{" "}
-                            <label for="social-profile-modal" className="cursor-pointer">
+                            <label htmlFor="social-profile-modal" className="cursor-pointer">
                                 <FontAwesomeIcon className="text-success ml-5" icon={faEdit} />
                             </label>
                         </h4>
@@ -105,7 +105,7 @@ const Profile = () => {
                 <div className="order-1 sm:order-2">
                     <h3 className="mb-3 text-2xl font-semibold">
                         Contact Information{" "}
-                        <label for="profile-modal" className="cursor-pointer">
+                        <label htmlFor="profile-modal" className="cursor-pointer">
                             <FontAwesomeIcon className="text-success ml-5" icon={faEdit} />
                         </label>
                     </h3>
@@ -152,7 +152,7 @@ const Profile = () => {
                     </table>
                     <h3 className="mb-3 text-2xl font-semibold">
                         Basic Information{" "}
-                        <label for="basic-profile-modal" className="cursor-pointer">
+                        <label htmlFor="basic-profile-modal" className="cursor-pointer">
                             <FontAwesomeIcon className="text-success ml-5" icon={faEdit} />
                         </label>
                     </h3>

@@ -34,21 +34,21 @@ const OrderTable = ({ order, index, setIsDelete }) => {
                 <td className="border text-center">${totalPrice}</td>
                 <td className="border text-center">{quantity}</td>
                 <td className={`border text-center`}>
-                    <div class={`badge text-white rounded-2xl p-3 ${status === "unpaid" ? "badge-error" : status === "Pending" ? "badge-info" : status === "Shipped" ? "badge-primary" : "badge-success"}`}>{status}</div>
+                    <div className={`badge text-white rounded-2xl p-3 ${status === "unpaid" ? "badge-error" : status === "Pending" ? "badge-info" : status === "Shipped" ? "badge-primary" : "badge-success"}`}>{status}</div>
                 </td>
 
                 {!paid ? (
                     <td className="border text-center">
                         <div className="dropdown dropdown-end">
-                            <label tabindex="0" className="m-1 cursor-pointer">
+                            <label tabIndex="0" className="m-1 cursor-pointer">
                                 <FontAwesomeIcon className="text-3xl" icon={faEllipsisVertical} />
                             </label>
-                            <ul tabindex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
                                     <button onClick={() => navigate(`payment/${_id}`)}>Pay Now</button>
                                 </li>
                                 <li>
-                                    <label onClick={() => setIsDelete(order)} for="delete-confirm-modal">
+                                    <label onClick={() => setIsDelete(order)} htmlFor="delete-confirm-modal">
                                         Cancel Order
                                     </label>
                                 </li>

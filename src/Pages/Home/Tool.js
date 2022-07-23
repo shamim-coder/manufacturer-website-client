@@ -1,10 +1,11 @@
 import { format } from "date-fns/esm";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useProfile from "../../Hooks/useProfile";
 
 const Tool = ({ tool }) => {
     const navigate = useNavigate();
-
+    const { profile } = useProfile();
     const { price, name, model, image, availableStock, minimumQuantity, issueDate, _id } = tool;
 
     const today = format(new Date(), "MM-dd-yyyy");
@@ -19,8 +20,9 @@ const Tool = ({ tool }) => {
                 </span>
                 <div className=" bg-white relative tool transition overflow-hidden">
                     <img className="border-2 border-gray-400 p-5" src={image} alt="" />
+
                     <button onClick={() => navigate(`/tool-details/${_id}`)} className="transition buy-now btn btn-primary w-full">
-                        {availableStock < minimumQuantity ? "See Details" : "Buy Now"}
+                        {profile?.role === "admin" ? "See Details" : availableStock < minimumQuantity ? "See Details" : "Buy Now"}
                     </button>
                 </div>
             </div>

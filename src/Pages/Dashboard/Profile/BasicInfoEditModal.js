@@ -47,7 +47,7 @@ const BasicInfoEditModal = ({ refetch, profile }) => {
             <input type="checkbox" id="basic-profile-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box p-10 relative">
-                    <label for="basic-profile-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
+                    <label htmlFor="basic-profile-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
                         ✕
                     </label>
                     <h2 className="text-2xl mb-5">Contact Information</h2>
@@ -74,7 +74,7 @@ const BasicInfoEditModal = ({ refetch, profile }) => {
 
                         <div className="form-control">
                             <button type="submit">
-                                <label className={`w-full btn ${loading && "loading"} btn-primary`} for="basic-profile-modal">
+                                <label className={`w-full btn ${loading && "loading"} btn-primary`} htmlFor="basic-profile-modal">
                                     Save
                                 </label>
                             </button>

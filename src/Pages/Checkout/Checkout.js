@@ -59,8 +59,8 @@ const Checkout = () => {
         <section className="py-20">
             <h2 className="text-4xl font-semibold text-center mb-14">Order Summery</h2>
             <div className="container mx-auto flex flex-col lg:flex-row justify-between gap-10">
-                <div className="product-details w-full shadow-lg">
-                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-10 border p-5 items-center">
+                <div className="product-details w-full shadow-lg border">
+                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-10 p-5 items-center">
                         <img className="w-full" src={image} alt="" />
                         <div>
                             <h4 className="text-2xl mb-5">{name}</h4>
@@ -104,7 +104,7 @@ const Checkout = () => {
                             {errors.address?.type === "required" && <span className="label text-error text-sm">Address is required</span>}
                         </div>
                         <div className="form-control mt-6">
-                            <button class={`btn btn-primary ${loading && "loading"}`}>Confirm Order</button>
+                            <button className={`btn btn-primary ${loading && "loading"}`}>Confirm Order</button>
                         </div>
                     </form>
                 </div>

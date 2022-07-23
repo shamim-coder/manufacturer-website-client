@@ -1,4 +1,4 @@
-# easyStock | Inventory Management System
+# DEWALT-BD | Client Side Code
 
 Live Site [https://dewalt-bd.web.app](https://dewalt-bd.web.app).
 

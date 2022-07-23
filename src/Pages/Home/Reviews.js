@@ -7,16 +7,19 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 // import required modules
-import { FreeMode, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import SectionTop from "../../Components/SectionTop/SectionTop";
 import useReviews from "../../Hooks/useReviews";
 import Spinner from "../../Components/Spinner/Spinner";
 import Rating from "../Dashboard/AddReview/Rating";
 import { useNavigate } from "react-router-dom";
+import useProfile from "../../Hooks/useProfile";
 
 const Reviews = () => {
     const { reviews, isLoading } = useReviews();
     const navigate = useNavigate();
+
+    const { profile } = useProfile();
 
     if (isLoading) {
         return <Spinner />;
@@ -55,7 +58,7 @@ const Reviews = () => {
                         className="mySwiper"
                     >
                         {reviews.map((review) => (
-                            <SwiperSlide>
+                            <SwiperSlide key={review._id}>
                                 <div className="review py-10 px-7 text-gray-800 border-2 bg-white">
                                     <div className="mb-2">
                                         <q className="mb-2 text-center text-gray-600">{review.message.split(" ").slice(0, 22).join(" ")}.</q>
@@ -76,9 +79,11 @@ const Reviews = () => {
                     </Swiper>
                 </div>
                 <div className="swiper-pagination"></div>
-                <button onClick={() => navigate("/dashboard/add-review")} className="btn btn-primary mx-auto block px-10">
-                    Write a Review
-                </button>
+                {profile?.role !== "admin" && (
+                    <button onClick={() => navigate("/dashboard/add-review")} className="btn btn-primary mx-auto block px-10">
+                        Write a Review
+                    </button>
+                )}
             </div>
         </section>
     );

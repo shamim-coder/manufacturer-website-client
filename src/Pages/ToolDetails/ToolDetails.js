@@ -3,12 +3,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { OrderContext } from "../../App";
+import useProfile from "../../Hooks/useProfile";
 
 const ToolDetails = () => {
     const { setOrderInfo } = useContext(OrderContext);
     const { id } = useParams();
     const [tool, setTool] = useState({});
     const navigate = useNavigate();
+    const { profile } = useProfile();
 
     const { image, name, price, model, description, availableStock, minimumQuantity, category, weight, dimensions, loadSpeed } = tool;
 
@@ -68,45 +70,46 @@ const ToolDetails = () => {
                     <p className="text-lg mt-2">Model: {model}</p>
                     <h2 className="text-4xl font-semibold text-secondary mt-7">${price}</h2>
                     <p className="mt-7 leading-relaxed text-accent">{description}</p>
-
-                    <div className="flex gap-10 my-10">
-                        {availableStock === 0 ? (
-                            <div className="alert alert-error shadow-lg">
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                    <span>Stock Not Available</span>
-                                </div>
-                            </div>
-                        ) : availableStock < minimumQuantity ? (
-                            <div className="alert alert-warning shadow-lg">
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                    </svg>
-                                    <span>Warning: Enough Quantity not available of this product.</span>
-                                </div>
-                            </div>
-                        ) : (
-                            <>
-                                <div className="mkd-quantity-buttons quantity flex gap-1">
-                                    <input className="w-14 py-3 text-xl text-center" type="text" name="quantity" defaultValue={quantity} />
-                                    <div className="flex-col flex gap-1">
-                                        <button onClick={increaseQnt} className="hover:bg-primary transition bg-white h-full px-3">
-                                            +
-                                        </button>
-                                        <button onClick={decreaseQnt} className="hover:bg-primary transition bg-white h-full px-3">
-                                            -
-                                        </button>
+                    {profile?.role !== "admin" && (
+                        <div className="flex gap-10 my-10">
+                            {availableStock === 0 ? (
+                                <div className="alert alert-error shadow-lg">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Stock Not Available</span>
                                     </div>
                                 </div>
-                                <button onClick={handleCheckout} className="btn btn-primary h-14 px-10">
-                                    Buy Now
-                                </button>
-                            </>
-                        )}
-                    </div>
+                            ) : availableStock < minimumQuantity ? (
+                                <div className="alert alert-warning shadow-lg">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                        </svg>
+                                        <span>Warning: Enough Quantity not available of this product.</span>
+                                    </div>
+                                </div>
+                            ) : (
+                                <>
+                                    <div className="mkd-quantity-buttons quantity flex gap-1">
+                                        <input className="w-14 py-3 text-xl text-center" type="text" name="quantity" defaultValue={quantity} />
+                                        <div className="flex-col flex gap-1">
+                                            <button onClick={increaseQnt} className="hover:bg-primary transition bg-white h-full px-3">
+                                                +
+                                            </button>
+                                            <button onClick={decreaseQnt} className="hover:bg-primary transition bg-white h-full px-3">
+                                                -
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button onClick={handleCheckout} className="btn btn-primary h-14 px-10">
+                                        Buy Now
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                    )}
 
                     <p className="mb-3">
                         Available Stock: <span className="text-accent">{availableStock} </span>

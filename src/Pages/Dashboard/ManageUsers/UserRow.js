@@ -22,7 +22,7 @@ const UserRow = ({ user, index, refetch }) => {
         }
     };
     return (
-        <tr class={`${role === "admin" && "active"}`}>
+        <tr className={`${role === "admin" && "active"}`}>
             <th className="text-center">{index + 1}</th>
             <td>
                 <div className="flex items-center space-x-3">

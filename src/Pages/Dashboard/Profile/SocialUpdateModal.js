@@ -47,7 +47,7 @@ const SocialUpdateModal = ({ refetch, profile }) => {
             <input type="checkbox" id="social-profile-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box p-10 relative">
-                    <label for="social-profile-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
+                    <label htmlFor="social-profile-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
                         ✕
                     </label>
                     <h2 className="text-2xl mb-5">Social Link Update</h2>
@@ -64,7 +64,7 @@ const SocialUpdateModal = ({ refetch, profile }) => {
 
                         <div className="form-control">
                             <button type="submit">
-                                <label className={`w-full btn ${loading && "loading"} btn-primary`} for="social-profile-modal">
+                                <label className={`w-full btn ${loading && "loading"} btn-primary`} htmlFor="social-profile-modal">
                                     Save
                                 </label>
                             </button>
