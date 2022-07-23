@@ -19,6 +19,7 @@
         "date-fns": "^2.28.0",
         "firebase": "^9.9.1",
         "react": "^18.2.0",
+        "react-countup": "^6.3.0",
         "react-dom": "^18.2.0",
         "react-firebase-hooks": "^5.0.3",
         "react-hook-form": "^7.33.1",
@@ -28,6 +29,7 @@
         "react-star-ratings": "^2.3.0",
         "react-stars": "^2.2.5",
         "react-toastify": "^9.0.7",
+        "react-visibility-sensor": "^5.1.1",
         "swiper": "^8.3.1",
         "web-vitals": "^2.1.4"
     },
