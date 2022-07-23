@@ -20,7 +20,7 @@ const Payment = () => {
         data: orderDetails,
         refetch,
     } = useQuery(["orderDetails", id], async () => {
-        const res = await fetch(`http://localhost:5000/order/${id}`, {
+        const res = await fetch(`https://dewalt-bd.herokuapp.com/order/${id}`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

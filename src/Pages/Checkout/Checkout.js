@@ -32,7 +32,7 @@ const Checkout = () => {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/order", {
+            const response = await fetch("https://dewalt-bd.herokuapp.com/order", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

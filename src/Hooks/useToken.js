@@ -11,7 +11,7 @@ const useToken = (user) => {
         const currentUser = { email, name, image };
 
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://dewalt-bd.herokuapp.com/user/${email}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

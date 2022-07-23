@@ -19,7 +19,7 @@ const ContactInfoEditModal = ({ refetch, profile }) => {
     const handleEditProfile = (data) => {
         console.log(data);
         setLoading(true);
-        fetch(`http://localhost:5000/update-user/${user.email}`, {
+        fetch(`https://dewalt-bd.herokuapp.com/update-user/${user.email}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

@@ -7,7 +7,7 @@ const DeleteConfirmModal = ({ isDelete, refetch, path }) => {
     const { name, _id } = isDelete;
 
     const handleDelete = async (id) => {
-        const res = await fetch(`http://localhost:5000/${path}/${id}`, {
+        const res = await fetch(`https://dewalt-bd.herokuapp.com/${path}/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

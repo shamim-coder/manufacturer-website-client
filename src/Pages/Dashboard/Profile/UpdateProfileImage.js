@@ -32,7 +32,7 @@ const UpdateProfileImage = ({ refetch, setUploading }) => {
             .then((result) => {
                 if (result.success) {
                     const image = result.data.url;
-                    fetch(`http://localhost:5000/update-user/${user.email}`, {
+                    fetch(`https://dewalt-bd.herokuapp.com/update-user/${user.email}`, {
                         method: "PATCH",
                         headers: {
                             "content-type": "application/json",

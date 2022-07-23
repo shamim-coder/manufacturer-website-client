@@ -37,7 +37,7 @@ const AddReview = () => {
             rating: ratingNumber,
         };
 
-        const res = await fetch(`http://localhost:5000/review/${user.email}`, {
+        const res = await fetch(`https://dewalt-bd.herokuapp.com/review/${user.email}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

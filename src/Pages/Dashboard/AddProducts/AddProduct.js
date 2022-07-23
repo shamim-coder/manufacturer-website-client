@@ -47,7 +47,7 @@ const AddProduct = () => {
                     };
 
                     // send product data to database
-                    fetch("http://localhost:5000/product", {
+                    fetch("https://dewalt-bd.herokuapp.com/product", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
