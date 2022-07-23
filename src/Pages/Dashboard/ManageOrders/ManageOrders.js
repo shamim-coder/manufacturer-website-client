@@ -35,7 +35,7 @@ const ManageOrders = () => {
                     </tbody>
                 </table>
 
-                {isDelete && <DeleteConfirmModal isDelete={isDelete} refetch={refetch} />}
+                {isDelete && <DeleteConfirmModal isDelete={isDelete} refetch={refetch} path={"order"} />}
             </div>
         </section>
     );

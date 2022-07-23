@@ -9,7 +9,7 @@ const OrderRow = ({ order, index, refetch, setIsDelete }) => {
 
     const handleChangeStatus = (statusText) => {
         setIsLoading(true);
-        fetch(`https://dewalt-bd.herokuapp.com/order/status/${_id}`, {
+        fetch(`http://localhost:5000/order/status/${_id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
@@ -79,7 +79,9 @@ const OrderRow = ({ order, index, refetch, setIsDelete }) => {
                 </div>
             </td>
             <td className="border text-center">
-                {paid && status === "Pending" ? (
+                {isLoading ? (
+                    <button className="btn bg-transparent loading">Changing</button>
+                ) : paid && status === "Pending" ? (
                     <button onClick={() => handleChangeStatus("Shipped")} className="text-primary">
                         Make Shipped
                     </button>

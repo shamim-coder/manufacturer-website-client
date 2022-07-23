@@ -22,7 +22,7 @@ const CheckoutForm = ({ orderDetails, refetch }) => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch("https://dewalt-bd.herokuapp.com/create-payment-intent", {
+            const res = await fetch("http://localhost:5000/create-payment-intent", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -99,7 +99,7 @@ const CheckoutForm = ({ orderDetails, refetch }) => {
                 paymentMethod: paymentMethod.type,
             };
 
-            fetch(`https://dewalt-bd.herokuapp.com/order/${_id}`, {
+            fetch(`http://localhost:5000/order/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "content-type": "application/json",

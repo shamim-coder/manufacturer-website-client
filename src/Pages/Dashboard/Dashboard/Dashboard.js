@@ -10,7 +10,7 @@ const Dashboard = () => {
         <section>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content w-full px-10">
+                <div className="drawer-content w-full md:px-10 px-5">
                     {/* <!-- Page content here --> */}
                     <Outlet />
                 </div>

@@ -11,7 +11,7 @@ const useProfile = () => {
         data: profile,
         refetch,
     } = useQuery(["profile", user], async () => {
-        const res = await fetch(`https://dewalt-bd.herokuapp.com/update-user/${user.email}`, {
+        const res = await fetch(`http://localhost:5000/update-user/${user.email}`, {
             method: "PATCH",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

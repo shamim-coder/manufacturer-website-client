@@ -19,7 +19,7 @@ const BasicInfoEditModal = ({ refetch, profile }) => {
     const handleEditProfile = (data) => {
         console.log(data);
         setLoading(true);
-        fetch(`https://dewalt-bd.herokuapp.com/update-user/${user.email}`, {
+        fetch(`http://localhost:5000/update-user/${user.email}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
@@ -73,11 +73,11 @@ const BasicInfoEditModal = ({ refetch, profile }) => {
                         </div>
 
                         <div className="form-control">
-                            <label for="basic-profile-modal">
-                                <button type="submit" className={`w-full btn ${loading && "loading"} btn-primary`}>
+                            <button type="submit">
+                                <label className={`w-full btn ${loading && "loading"} btn-primary`} for="basic-profile-modal">
                                     Save
-                                </button>
-                            </label>
+                                </label>
+                            </button>
                         </div>
                     </form>
                 </div>

@@ -16,7 +16,7 @@ const ToolDetails = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await axios.get(`https://dewalt-bd.herokuapp.com/tool/${id}`, {
+            const res = await axios.get(`http://localhost:5000/tool/${id}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },

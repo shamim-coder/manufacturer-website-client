@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Spinner from "../../../Components/Spinner/Spinner";
 import useProfile from "../../../Hooks/useProfile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,7 @@ import UpdateProfileImage from "./UpdateProfileImage";
 
 const Profile = () => {
     const { profile, isLoading, refetch } = useProfile();
+    const [uploading, setUploading] = useState(false);
 
     if (isLoading) {
         return <Spinner />;
@@ -25,6 +26,7 @@ const Profile = () => {
                     <label for="profile-profile-picture" className="profile-label flex justify-center items-center cursor-pointer absolute top-0 left-0 h-full w-full">
                         <FontAwesomeIcon className="text-success" icon={faPencil} />
                     </label>
+                    {uploading && <button class="btn scale-90 loading bg-secondary/60 transition absolute top-0 left-0 h-full w-full"></button>}
                 </div>
                 <div>
                     <h2 className="text-2xl font-semibold mb-1">{profile.name}</h2>
@@ -175,7 +177,7 @@ const Profile = () => {
             <ContactInfoEditModal profile={profile} refetch={refetch} />
             <BasicInfoEditModal profile={profile} refetch={refetch} />
             <SocialUpdateModal profile={profile} refetch={refetch} />
-            <UpdateProfileImage profile={profile} refetch={refetch} />
+            <UpdateProfileImage profile={profile} setUploading={setUploading} refetch={refetch} />
         </section>
     );
 };

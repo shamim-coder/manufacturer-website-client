@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../../Utilities/Firebase.init";
 import { toast } from "react-toastify";
 
-const UpdateProfileImage = ({ refetch, profile }) => {
-    const [loading, setLoading] = useState(false);
+const UpdateProfileImage = ({ refetch, setUploading }) => {
+    // const [loading, setLoading] = useState(false);
     const [user] = useAuthState(auth);
+    // const [loading, setLoading] = imageUploading;
 
     const imageStorageKey = "da74e5de36eb5bf4a767be72ae846820";
 
@@ -18,7 +19,7 @@ const UpdateProfileImage = ({ refetch, profile }) => {
     } = useForm();
 
     const handleEditProfile = (data) => {
-        setLoading(true);
+        setUploading(true);
         const image = data.image[0];
         const formData = new FormData();
         formData.append("image", image);
@@ -31,7 +32,7 @@ const UpdateProfileImage = ({ refetch, profile }) => {
             .then((result) => {
                 if (result.success) {
                     const image = result.data.url;
-                    fetch(`https://dewalt-bd.herokuapp.com/update-user/${user.email}`, {
+                    fetch(`http://localhost:5000/update-user/${user.email}`, {
                         method: "PATCH",
                         headers: {
                             "content-type": "application/json",
@@ -43,12 +44,12 @@ const UpdateProfileImage = ({ refetch, profile }) => {
                         .then((data) => {
                             if (data.modifiedCount > 0) {
                                 refetch();
-                                setLoading(false);
+                                setUploading(false);
                                 reset();
                                 toast.success("Profile Updated Successfully!");
                             } else {
                                 toast.success("Failed to update profile");
-                                setLoading(false);
+                                setUploading(false);
                             }
                         });
                 }
@@ -75,11 +76,11 @@ const UpdateProfileImage = ({ refetch, profile }) => {
                         </div>
 
                         <div className="form-control">
-                            <label for="profile-profile-picture">
-                                <button type="submit" className={`w-full btn ${loading && "loading"} btn-primary`}>
+                            <button type="submit">
+                                <label className={`w-full btn btn-primary`} for="profile-profile-picture">
                                     Upload
-                                </button>
-                            </label>
+                                </label>
+                            </button>
                         </div>
                     </form>
                 </div>

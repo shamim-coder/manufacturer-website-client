@@ -20,7 +20,7 @@ const Payment = () => {
         data: orderDetails,
         refetch,
     } = useQuery(["orderDetails", id], async () => {
-        const res = await fetch(`https://dewalt-bd.herokuapp.com/order/${id}`, {
+        const res = await fetch(`http://localhost:5000/order/${id}`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -48,11 +48,11 @@ const Payment = () => {
                     Please pay for your order <span className="badge badge-ghost badge-md">#{_id}</span>{" "}
                 </p>
             </div>
-            <div className="mx-auto grid grid-cols-2 justify-between gap-10">
+            <div className="mx-auto grid md:grid-cols-2 justify-between gap-10 mb-10">
                 <div className="w-full">
                     <h2 className="text-2xl font-semibold">Order Summery:</h2>
-                    <div className="md:flex gap-5 mt-5 border px-3 py-5 items-center">
-                        <img className="md:w-5/12" src={image} alt="" />
+                    <div className="xl:flex gap-5 mt-5 border px-3 py-5 items-center">
+                        <img className="xl:w-5/12 mb-5" src={image} alt="" />
                         <div>
                             <h4 className="text-2xl mb-2">{name}</h4>
                             <p className="badge badge-ghost badge-sm font-body mb-5">Model: {model}</p>
@@ -65,7 +65,7 @@ const Payment = () => {
                         </div>
                     </div>
                 </div>
-                <div className="checkout-form w-8/12">
+                <div className="checkout-form xl:w-8/12">
                     <h2 className="text-2xl font-semibold">Payment Details</h2>
 
                     <Elements stripe={stripePromise}>

@@ -31,7 +31,7 @@ const Navbar = () => {
 
                             <li>
                                 <NavLink to={"/all-products"} className="uppercase font-semibold">
-                                    All Products
+                                    All Tools
                                 </NavLink>
                             </li>
                             {user && (
@@ -67,7 +67,7 @@ const Navbar = () => {
 
                         <li>
                             <NavLink to={"/all-products"} className="uppercase font-semibold">
-                                All Products
+                                All Tools
                             </NavLink>
                         </li>
                         {user && (

@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# easyStock | Inventory Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Site [https://dewalt-bd.web.app](https://dewalt-bd.web.app).
 
-## Available Scripts
+## Features & Functionalities
 
-In the project directory, you can run:
+-   Require Signup/Login for see Dashboard & Checkout Product Page.
+-   Only User can see own orders at Dashboard > My Order History and can cancel order if not paid yet.
+-   User Can see there order status at My Order History Page. ex: Unpaid, Pending, Shipped, Delivered.
+-   Only User can write review at Dashboard > Add Review Section. Review will showing at home page review section.
+-   If User is Unpaid, can Payment via Card.
+-   API are protected with JWT. No thief can see it.
+-   Admin Panel are available at the project, Admin details are given below.
+-   Only Admin can access "Add Product" "Manage Products", "Manage Users", "Manage Orders".
+-   On Manage User Page, Only Admin can Change "Normal User" to "Admin".
+-   On Manage Orders Page, Admin can change order status. on the user side, user can see the updated status.
+-   On Manage Product Page, Admin can Delete the Product.
+-   My Profile Page are accessible for Both User & Admin.
+-   On My Profile Page, User/Admin can update there Information and Change Profile Photo too.
+-   User can access by email/password or by social media (google)
 
-### `npm start`
+## Used Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   React JS
+-   React Router
+-   Tailwind CSS
+-   Daisy UI
+-   Firebase (For Authentication & Deploy Client)
+-   React Firebase Hooks
+-   React Hook Form
+-   TanStack Query
+-   Express Js (CURD Operations)
+-   MongoDB (Database)
+-   Heroku (Deploy Server)
+-   Font Awesome (Icon)
+-   Stripe (For Payment)
+-   Axios
+-   Tostify (Showing success, error, warning message)
+-   JSON Web Token (JWT)
+-   Date FN, React Star Ratings, Swiper
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Admin Login Details
 
-### `npm test`
+Email: shamimreza@gmail.com
+Password: shamim123
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Product Reference Website [https://www.dewalt.com/](https://www.dewalt.com/).

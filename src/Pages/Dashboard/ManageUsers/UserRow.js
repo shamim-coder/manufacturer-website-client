@@ -5,7 +5,7 @@ const UserRow = ({ user, index, refetch }) => {
     const { name, image, email, role } = user;
 
     const makeAdmin = async () => {
-        const response = await fetch(`https://dewalt-bd.herokuapp.com/user/admin/${email}`, {
+        const response = await fetch(`http://localhost:5000/user/admin/${email}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

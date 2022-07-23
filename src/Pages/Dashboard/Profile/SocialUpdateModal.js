@@ -19,7 +19,7 @@ const SocialUpdateModal = ({ refetch, profile }) => {
     const handleEditProfile = (data) => {
         console.log(data);
         setLoading(true);
-        fetch(`https://dewalt-bd.herokuapp.com/update-user/${user.email}`, {
+        fetch(`http://localhost:5000/update-user/${user.email}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
@@ -36,7 +36,7 @@ const SocialUpdateModal = ({ refetch, profile }) => {
                     reset();
                     toast.success("Profile Updated Successfully!");
                 } else {
-                    toast.success("Failed to update profile");
+                    toast.error("Failed to update profile");
                     setLoading(false);
                 }
             });
@@ -63,11 +63,11 @@ const SocialUpdateModal = ({ refetch, profile }) => {
                         <FormControl register={register} defaultValue={profile?.stackOverflow} require={false} name="stackOverflow" errors={errors} label={"Stack Overflow Url"} type="text" />
 
                         <div className="form-control">
-                            <label for="social-profile-modal">
-                                <button type="submit" className={`w-full btn ${loading && "loading"} btn-primary`}>
+                            <button type="submit">
+                                <label className={`w-full btn ${loading && "loading"} btn-primary`} for="social-profile-modal">
                                     Save
-                                </button>
-                            </label>
+                                </label>
+                            </button>
                         </div>
                     </form>
                 </div>
