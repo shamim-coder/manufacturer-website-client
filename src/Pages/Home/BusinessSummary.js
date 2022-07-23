@@ -1,6 +1,5 @@
 import React from "react";
 import SectionTop from "../../Components/SectionTop/SectionTop";
-import CountUp from "react-countup";
 import Counter from "../../Components/Counter/Counter";
 
 const BusinessSummary = () => {
